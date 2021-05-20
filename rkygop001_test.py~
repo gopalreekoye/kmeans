@@ -1,0 +1,12 @@
+#reekoye gopal
+#rkygop001
+#20/05/2021
+
+#test module
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from kmeans import KMeans
+
+df=pd.DataFrame
