@@ -4,21 +4,17 @@
 
 #test module
 
-import pandas as pd
+
 import numpy as np
 import matplotlib.pyplot as plt
-from kmeans import KMeans
+from kmean import Kmeans
 
-df=pd.DataFrame({
-    'x': [2,2,8,5,7,6,1,4],
-    'y': [10,5,4,8,5,4,2,9]})
 
-print(pd.shape)
 
-clusters = len(np.unique(pd))
-print(clusters)
 
-k=KMeans(K=clusters, max_iters=150, plot_steps=False)
-y-pred=k.predict(pd)
+arr = [[2,10],[2,5],[8,4],[5,8],[7,5],[6,4],[1,2],[4,9]]
 
-k.plot()
+k=Kmeans(K=3, max_iters=20)
+y_pred=k.predict(ar)
+
+

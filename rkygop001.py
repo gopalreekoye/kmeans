@@ -8,15 +8,15 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-np.random.seed(42)
+
 
 def euclidean_distance(x1,x2):
     return np.sqrt(np.sum((x1-x2)**2))
 
 class KMeans:
-    def __init__(self, K=5, max_iters=100, plot_steps=False):
+    def __init__(self, K=3, max_iters=10, plot_steps=False):
         self.K= K
-        sef.max_iters = max_iters
+        self.max_iters = max_iters
         self.plot_steps = plot_steps
 
         #list of sample indices for each cluster
@@ -29,24 +29,24 @@ class KMeans:
         self.n_samples, self.n_features = X.shape
 
         #initialise the centroids
-        random_samples_idxs = np.random.choice(self.n_samples, self.K, replace=False)
-        self.centroids = [self.X[idx] for idx in ranom random_sample_idxs]
+        self.centroids = [1,4,7]
 
         #optimization
         for _ in range(self.max_iters):
             #update clusters
             self.clusters = self._create_clusters(self.centroids)
+            if self.plot_steps:
+                self.plot()
 
             #update centroids
             centroids_old =  self.centroids
             self.centroids = self._get_centroids(self.clusters)
             
-            if self.plot_steps:
-                self.plot()
 
 
             #check for convergence
             if self._is_converged(centroids_old, self.centroids):
+                break
 
         #return cluster labels
         return self._get_cluster_labels(self.clusters)
